@@ -1,36 +1,39 @@
 /**
 If image == null, then show text only
 */
-function question(text, imagename) {
-	this.text = text;
-	this.imagename = imagename;
+function question(questionStr, answerText, answerImageLink) {
+	this.questionStr = questionStr;
+	this.answerText = answerText;// ["adsf","adsf"]
+	this.answerImageLink = answerImageLink; // ["link1", "link2"]
 }
 
-function makeQuestion(linkBank){
+function makeQuestions(linkBank){
 	var questions = [];
 	for(var i = 0; i < linkBank.length; i ++){
-		questions.push(new question(linkBank[i], null));
+		questions.push(new question(linkBank[i][0], linkBank[i][1], linkBank[i][2]));
 	}
 	return questions;
 }
 
-function makeRandomQuestions(linkBank){
-	var questions = [];
-	for (var i = 0 ; i < linkBank.length; i ++){
-		var newIn = Math.floor(Math.random()*(linkBank.length - i) + i);
-		var tmp = linkBank[i];
-		linkBank[i] = linkBank[newIn];
-		linkBank[newIn] = tmp;
+function shuffle(arr){
+	if (arr != null){
+		for (var i = 0 ; i < arr.length; i ++){
+			var newIn = Math.floor(Math.random()*(arr.length - i) + i);
+			var tmp = arr[i];
+			arr[i] = arr[newIn];
+			arr[newIn] = tmp;
+		}
 	}
-	var questions = [];
-	for (var i = 0; i < linkBank.length; i ++){
-		questions.push(new question(linkBank[i]));
-	}
-	return questions;
+	return arr;
 }
 
-var linkBank  = ["Twitter.com", "Twitler.com", "facebook.com", "facelook.com", "google.com", "gocgler.com"];
-var questions = makeRandomQuestions(linkBank);
+var linkBank  = [["Click the following links", ["Twitter.com", "Twitler.com"],null],
+				 ["Click the following links", ["facebook.com", "facelook.com"],null],
+				 ["Click the following links", ["google.com", "googlec.om"],null],
+				 ["Click the following links", ["youtube.com", "youtbue.com"],null],
+				 ["Click the following links", ["examplee.com", "example.com"],null]];
+var linkBank = shuffle(linkBank);
+var questions = makeQuestions(linkBank);
 
 
 var GRID_WIDTH = 4;
