@@ -110,6 +110,7 @@ $(document).on( "ready", function() {
         if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
             if (targetId == 15) {
                 $(target).html('');
+                endGame();
             }
 
             if (currentPosition%4+1 < GRID_WIDTH) {
@@ -124,7 +125,6 @@ $(document).on( "ready", function() {
                 $(this).appendTo($(target)).fadeIn('fast');
                 currentPosition = parseInt($(target).attr('id').substring(8));
                 blinking();
-                endGame();
             });
         }
     });
