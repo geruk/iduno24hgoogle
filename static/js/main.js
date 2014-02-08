@@ -129,7 +129,10 @@ $(document).on( "ready", function() {
         		case 2:
         			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[1]});
         			break;
-        		case 15:
+                case 3:
+                    $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[2]});
+                    break;
+                case 15:
         			$(target).html('');
         			endGame();
         	}
