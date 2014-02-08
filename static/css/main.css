@@ -604,11 +604,11 @@ Tooltip
 .modal-body {
     max-height: none !important;
 }
+
 .errormsg {
   position: relative;
   height:120px;
   width:510px;
   background-repeat: no-repeat;
   background-image:url('../img/error.png');
-
 }
