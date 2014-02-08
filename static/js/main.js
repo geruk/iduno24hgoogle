@@ -87,7 +87,7 @@ $(document).on( "ready", function() {
 		matrix.append(row);
 	}
 	var init_cell = $("#element-0");
-	init_cell.append('<img src="img/firefox_girl.png" class="img-circle">');
+	init_cell.append('<img src="img/firefox_girl.png" style="height:100%;">');
 	$("#element-15").append('<img src="img/destination.png">Destination');
 
     var bodyHeight = $body.height();
