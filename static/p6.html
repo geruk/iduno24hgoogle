@@ -23,11 +23,11 @@ $(document).ready(function(){
 		event.preventDefault();
 		if ($(this).hasClass("correct") ) {
 			$("#p6 .alert-warning").hide();
-			$("#p6 .alert-success").html("Pay attention to the real link. Some look legit, but hiddenly <br/> redirected to malicious domains.").show().fadeOut(2500, function(){ complete_puzzle();
+			$("#p6 .alert-success").html("Pay attention to the real link. Some look legit,  <br/> but hiddenly redirected to malicious domains.").show().fadeOut(2500, function(){ complete_puzzle();
 			});
 		}
 		else {
-			$("#p6 .alert-warning").html("You just clicked a malicious link. Pay more attention when hovering.").hide().fadeIn();
+			$("#p6 .alert-warning").html("You just clicked a malicious link. Pay more attention <br/> when hovering.").hide().fadeIn();
 		}
 	});
 	$("#p6 .span3").hover(function(){ $(this).css('cursor','pointer').css('background-color', 'lightblue'); },
