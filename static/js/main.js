@@ -161,7 +161,6 @@ $(document).on( "ready", function() {
         $('#element-'+currentPosition).data("target", target);
 
         if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
-
         	if(targetId != 15){
                 $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[targetId-1].file});
             } else {
