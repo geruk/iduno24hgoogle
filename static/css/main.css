@@ -579,3 +579,10 @@ Tooltip
   background-color: #d9edf7;
   border-color: #bce8f1;
 }
+
+.score {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    padding: 50px 0;
+}
