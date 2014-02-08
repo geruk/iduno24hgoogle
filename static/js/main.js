@@ -33,6 +33,16 @@ var linkBank  = ["Twitter.com", "Twitler.com", "facebook.com", "facelook.com", "
 var questions = makeRandomQuestions(linkBank);
 
 
+var GRID_WIDTH = 4;
+var GRID_HEIGHT = 4;
+
+// var matrix = $("#matrix");
+// for (var i = 0; i < GRID_WIDTH; i++) {
+// 	matrix.append($("<div class='container'>"));
+// 	matrix.append($("</div>"));
+// }
+
+/*
 var CANVAS_WIDTH = 480;
 var CANVAS_HEIGHT = 320;
 var FPS = 30;
@@ -59,3 +69,14 @@ function draw() {
 	canvas.fillStyle = "#000";
 	canvas.fillText("Sup Bro!", textX, textY);
 }
+*/
+
+$(document).on( "ready", function() {
+    var $body = $('body'),
+        $gridBox = $('.grid-box'),
+        $infoBox = $('.info-box');
+
+    var bodyHeight = $body.height();
+
+    $gridBox.height(bodyHeight).width(bodyHeight);
+});
