@@ -18,7 +18,7 @@
 
         $("#close").click(function() {
             $("#p3 .alert-warning").hide();
-            $("#p3 .alert-success").text("Yes, you shouldn't download and install \n suspicious software.").show().fadeOut(1500, function(){
+            $("#p3 .alert-success").html("Yes, you shouldn't download and install <br/> suspicious software.").show().fadeOut(1500, function(){
                 complete_puzzle();
             });
         });
