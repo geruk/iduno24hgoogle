@@ -111,6 +111,7 @@ $(document).on( "ready", function() {
             }
 
             $('#element-' + currentPosition).find('img').fadeOut('fast', function() {
+                $('#element-' + currentPosition).append('<img src="img/foot.png" style="height:40px; width: 40px; padding: 50px;">');
                 $(this).appendTo($(target)).fadeIn('fast');
                 currentPosition = parseInt($(target).attr('id').substring(8));
             });
