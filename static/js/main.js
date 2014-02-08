@@ -1,12 +1,6 @@
 var GRID_WIDTH = 4;
 var GRID_HEIGHT = 4;
 
-// var matrix = $("#matrix");
-// for (var i = 0; i < GRID_WIDTH; i++) {
-// 	matrix.append($("<div class='container'>"));
-// 	matrix.append($("</div>"));
-// }
-
 /*
 var CANVAS_WIDTH = 480;
 var CANVAS_HEIGHT = 320;
@@ -41,10 +35,28 @@ $(document).on( "ready", function() {
         $gridBox = $('.grid-box'),
         $infoBox = $('.info-box');
 
-    var bodyHeight = $body.height();
+	var GRID_WIDTH = 4;
+	var GRID_HEIGHT = 4;
 
+	var matrix = $(".grid-box");
+	for (i = 0; i < GRID_WIDTH; i++) {
+		row = $('<div class="row-fluid"></div>');
+		for (j = 0; j < GRID_HEIGHT; j++) {
+			s = "element-"+(i*GRID_WIDTH+j);
+			cell = $('<div class="span3"></div>');
+			cell.append($("<div class='well' id='"+s+"'></div>"));
+			row.append(cell);
+		}
+		matrix.append(row);
+	}
+
+    var bodyHeight = $body.height();
     $gridBox.height(bodyHeight).width(bodyHeight);
     var $span3 = $('.span3');
-    var spanwidth = $span3.width();
+    console.log($span3.parent().parent().width());
+    var spanwidth = $span3.parent().parent().width()*0.25;
     $span3.height(spanwidth).width(spanwidth);
+    x = $('.well').width();
+    console.log(x);
+    $('.well').height(x);
 });
