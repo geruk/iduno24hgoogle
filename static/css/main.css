@@ -589,3 +589,10 @@ Tooltip
     font-size: 18px;
     font-weight: bold;
 }
+
+.final_score {
+    font-size: 30px; 
+    color: #F39C12; 
+    font-weight: bold;
+    padding: 20px;
+}

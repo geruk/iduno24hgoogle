@@ -35,8 +35,8 @@ $(document).on( "ready", function() {
     $('.well').height($('.well').width());
 
     $('.well').hover(function() {
-    	var target = event.currentTarget;
-        var targetId = parseInt($(target).attr('id').substring(8));
+		var target = event.currentTarget;
+		var targetId = parseInt($(target).attr('id').substring(8));
 
         if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
 
@@ -51,30 +51,30 @@ $(document).on( "ready", function() {
 			var popup = $('.popup', this).css('opacity', 0);
 			$(this).css('cursor','pointer');
 
-		      // don't trigger the animation again if we're being shown, or already visible
-		      if (beingShown || shown) {
-		        return;
-		      } else {
-		        beingShown = true;
+			// don't trigger the animation again if we're being shown, or already visible
+			if (beingShown || shown) {
+				return;
+			} else {
+				beingShown = true;
 
-		        // reset position of popup box
-		        popup.css({
-		          top: -10,
-		          left: -33,
-		          width: 400,
-		          display: 'block' // brings the popup back in to view
-		        })
+				// reset position of popup box
+				popup.css({
+					top: -10,
+					left: -33,
+					width: 400,
+					display: 'block' // brings the popup back in to view
+				})
 
-		        // (we're using chaining on the popup) now animate it's opacity and position
-		        .animate({
-		          top: '-=' + distance + 'px',
-		          opacity: 1
-		        }, time, 'swing', function() {
-		          // once the animation is complete, set the tracker variables
-		          beingShown = false;
-		          shown = true;
-		        });
-		      }
+				// (we're using chaining on the popup) now animate it's opacity and position
+				.animate({
+					top: '-=' + distance + 'px',
+					opacity: 1
+				}, time, 'swing', function() {
+					// once the animation is complete, set the tracker variables
+					beingShown = false;
+					shown = true;
+				});
+			}
 		}
 
 	}, function() {
@@ -84,24 +84,22 @@ $(document).on( "ready", function() {
 			var popup = $('.popup', this).css('opacity', 0);
 			$(this).css('cursor','auto');
 
-
-
 			var distance = 10;
 			var time = 250;
 			var hideDelay = 500;
-		      
-		      // store the timer so that it can be cleared in the mouseover if required
-		      hideDelayTimer = setTimeout(function () {
-		        hideDelayTimer = null;
-		        popup.animate({
-		          top: '-=' + distance + 'px',
-		          opacity: 0
-		        }, time, 'swing', function () {
-		          // hide the popup entirely after the effect (opacity alone doesn't do the job)
-		          popup.css('display', 'none');
-		        });
-		      }, hideDelay);
-		  }
+
+			// store the timer so that it can be cleared in the mouseover if required
+			hideDelayTimer = setTimeout(function () {
+				hideDelayTimer = null;
+				popup.animate({
+				top: '-=' + distance + 'px',
+				opacity: 0
+				}, time, 'swing', function () {
+				// hide the popup entirely after the effect (opacity alone doesn't do the job)
+				popup.css('display', 'none');
+				});
+			}, hideDelay);
+		}
 	});
 
 
@@ -126,6 +124,7 @@ $(document).on( "ready", function() {
                 $(this).appendTo($(target)).fadeIn('fast');
                 currentPosition = parseInt($(target).attr('id').substring(8));
                 blinking();
+                endGame();
             });
         }
     });
@@ -164,6 +163,15 @@ function blinking() {
                                     '</div></div>');
 		$('#element-' + (currentPosition+4)).append(bubble);
 	}
+}
+
+function endGame(isWon) {
+	var modalbox = $("#resultModal .modal-body");
+	modalbox.find(".final_score").text($(".score").text());
+	if (isWon) {
+		modalbox.append("You won");
+	} else modalbox.append("You lose");
+	$("#resultModal").modal({backdrop:"static", keyboard:false});
 }
 
 // setInterval(function() {
