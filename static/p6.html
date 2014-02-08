@@ -1,0 +1,36 @@
+<div id="p6">
+	<h2>Choose the non-malicious link</h2>
+	<div class="row" style="overflow: hidden">
+		<div class="span3 well"><a href="/?redirect=www.google.com">http://google.com</a></div>
+		<div class="span3 well"><a href="http://www.googie.com">http://google.com</a></div>
+	</div><div class="row">
+		<div class="span3 well"><a href="http://www.google.com@215.168.1.2/index.html">http://google.com</a></div>
+		<div class="span3 well"><a href="http://www.bubu.xxx/index.exe">http://google.com</a></div>
+	</div><div class="row">
+		<div class="span3 well"><a href="http://www.google.com.prxxx.net">http://google.com</a></div>
+		<div class="span3 well correct"><a href="http://www.google.com">http://google.com</a></div>
+	</div>
+    <div style="height: 100px; padding: 20px;">
+        <div class="alert alert-success"></div>
+        <div class="alert alert-warning"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#p6 .alert").hide();
+	$("#p6 .span3").click(function(event){ 
+		event.preventDefault();
+		if ($(this).hasClass("correct") ) {
+			$("#p6 .alert-warning").hide();
+			$("#p6 .alert-success").text("Pay attention to the real link. Some look legit, but hiddenly redirected to malicious domains.").show().fadeOut(2500, function(){ complete_puzzle();
+			});
+		}
+		else {
+			$("#p6 .alert-warning").html("You just clicked a malicious link. Pay more attention when hovering.").hide().fadeIn();
+		}
+	});
+	$("#p6 .span3").hover(function(){ $(this).css('cursor','pointer').css('background-color', 'lightblue'); },
+		function(){ $(this).css('cursor','auto').css('background-color', ''); });
+});
+</script>
