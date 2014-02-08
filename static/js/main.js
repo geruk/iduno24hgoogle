@@ -79,7 +79,7 @@ $(document).on( "ready", function() {
 		matrix.append(row);
 	}
 	var init_cell = $("#element-0");
-	init_cell.append('<img src="img/chrome_girl.png" style="height:100%;">');
+	init_cell.append('<img src="http://nycirclek.org/wp-content/uploads/the-legend-of-zelda-8-bit-link.gif" style="height:100%;">');
 	$("#element-15").append('<img src="img/destination.png">Destination');
 	blinking();
 
