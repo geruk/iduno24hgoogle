@@ -121,6 +121,7 @@ $(document).on( "ready", function() {
         var targetId = parseInt($(target).attr('id').substring(8));
 
         if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
+
         	switch(targetId){
         		case 1:
         			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[0]});
@@ -132,7 +133,17 @@ $(document).on( "ready", function() {
         			$(target).html('');
         			endGame();
         	}
-        	
+
+        	if (targetId == 1)
+    			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:"p4.html"});
+    		else if (targetId == 2)
+    			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:"p2.html"});
+            if (targetId == 15) {
+                $(target).html('');
+                endGame();
+            }
+
+
             if (currentPosition%4+1 < GRID_WIDTH) {
             	$('#element-' + (currentPosition+1)).html("");
             }
