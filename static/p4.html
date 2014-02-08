@@ -56,7 +56,7 @@ $(document).ready(function(){
 		} else if (mousePos.x > 381 && mousePos.x < 465 && mousePos.y > 81 && mousePos.y < 104) {
 			evt.target.style.cursor = "pointer";
 			$("#p2 .alert-success").hide();
-			$("#p2 .alert-danger").text("Oops. You really shouldn't. The UI doesn't look the same as yours.").show();
+			$("#p2 .alert-danger").html("Oops. You really shouldn't. The UI doesn't look <br/> the same as yours.").show();
 		} else {
 			evt.target.style.cursor = "auto";
 		}
