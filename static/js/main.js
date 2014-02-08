@@ -57,6 +57,10 @@ function shuffle (arr){
 }
 puzzles = shuffle(puzzles);
 
+var numPuzzles = 0;
+
+console.log(puzzles);
+
 $(document).on( "ready", function() {
 
     var $body = $('body'),
@@ -161,8 +165,15 @@ $(document).on( "ready", function() {
         $('#element-'+currentPosition).data("target", target);
 
         if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
+
+        	if (currentPosition + 4 == targetId) {
+        		var temp = puzzles[numPuzzles];
+        		puzzles[numPuzzles] = puzzles[numPuzzles+1];
+        		puzzles[numPuzzles+1] = temp;
+        	}
+
         	if(targetId != 15){
-                $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[targetId-1].file});
+                $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[numPuzzles].file});
             } else {
     			$(target).html('');
     			endGame(true);
@@ -172,11 +183,12 @@ $(document).on( "ready", function() {
 });
 
 function complete_puzzle() {
+	numPuzzles++;
 	$('#puzzleModal').modal('hide').remove();
 	$('body').prepend(modal_backup.clone());
 	var target = $('#element-'+currentPosition).data("target");
-        	
-    if (currentPosition%4+1 < GRID_WIDTH) {
+
+	if (currentPosition%4+1 < GRID_WIDTH) {
     	$('#element-' + (currentPosition+1)).html("");
     }
     if (currentPosition+4 < GRID_HEIGHT*GRID_WIDTH) {
@@ -189,6 +201,11 @@ function complete_puzzle() {
         currentPosition = parseInt($(target).attr('id').substring(8));
         blinking();
     });
+
+    var arch = $('<div class="arch"></div>');
+    console.log(currentPosition);
+	arch.append('<img src="img/check.png" width="25"> '+puzzles[numPuzzles-1].name);
+	$(".options-box .panel-body").prepend(arch);
 }
 
 /*
@@ -210,7 +227,7 @@ function blinking() {
 		bubble.append('<img src="img/go_right.png" class="trigger" />');
 		bubble.append('<div class="popup">'+
                                     '<div class="alert alert-success">'+
-                                        "Next Puzzle" +
+                                        puzzles[numPuzzles].name+
                                     '</div></div>');
 		$('#element-' + (currentPosition+1)).append(bubble);
 	}
@@ -220,7 +237,7 @@ function blinking() {
 		bubble.append('<img src="img/go_bot.png" class="trigger" />');
 		bubble.append('<div class="popup">'+
                                     '<div class="alert alert-success">'+
-                                        "Next Puzzle"+
+                                        puzzles[numPuzzles+1].name+
                                     '</div></div>');
 		$('#element-' + (currentPosition+4)).append(bubble);
 	}
