@@ -99,6 +99,22 @@ $(document).on( "ready", function() {
     x = $('.well').width();
     console.log(x);
     $('.well').height(x);
+
+    $('.well').on('click', function(event){
+        var target = event.currentTarget;
+        var targetId = parseInt($(target).attr('id').substring(8));
+
+        if (targetId == 15) {
+            $(target).html('');
+        }
+
+        if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
+            $('#element-' + currentPosition).find('img').fadeOut('fast', function() {
+                $(this).appendTo($(target)).fadeIn('fast');
+                currentPosition = parseInt($(target).attr('id').substring(8));
+            });
+        }
+    });
 });
 
 function moveRight() {
@@ -113,5 +129,4 @@ function moveBottom() {
     $('#element-' + currentPosition + ' img').fadeOut();
 }
 
-moveRight();
-console.log(currentPosition);
+
