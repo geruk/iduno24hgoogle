@@ -38,3 +38,13 @@ function draw() {
 	canvas.fillText("Sup Bro!", textX, textY);
 }
 */
+
+$(document).on( "ready", function() {
+    var $body = $('body'),
+        $gridBox = $('.grid-box'),
+        $infoBox = $('.info-box');
+
+    var bodyHeight = $body.height();
+
+    $gridBox.height(bodyHeight).width(bodyHeight);
+});

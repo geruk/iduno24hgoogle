@@ -97,7 +97,29 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html, body {
+    height: 100%;
+}
 
+.container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+#main {
+    height: 100%;
+    background: orange;
+}
+
+.grid-box {
+    float: left;
+    background: green;
+}
+
+.score-box {
+    height: 200px;
+    background: lightblue;
+}
 
 
 
