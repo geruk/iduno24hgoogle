@@ -1,5 +1,6 @@
 // hold current player position
-var currentPosition = 0;
+var currentPosition = 0,
+    score = 0;
 
 /**
 If image == null, then show text only
@@ -94,8 +95,8 @@ $(document).on( "ready", function() {
     $gridBox.height(bodyHeight).width(bodyHeight);
     var $span3 = $('.span3');
     console.log($span3.parent().parent().width());
-    var spanwidth = $span3.parent().parent().width()*0.25;
-    $span3.height(spanwidth).width(spanwidth);
+    var spanWidth = $span3.parent().parent().width()*0.25;
+    $span3.height(spanWidth).width(spanWidth);
     x = $('.well').width();
     console.log(x);
     $('.well').height(x);
@@ -117,16 +118,11 @@ $(document).on( "ready", function() {
     });
 });
 
-function moveRight() {
-    $('#element-' + currentPosition + ' img').fadeIn();
-    currentPosition += 1;
-    $('#element-' + currentPosition + ' img').fadeOut();
+/*
+ * Update Score Functions
+ */
+function updateScore(newScore) {
+    var $score = $('.score');
+    $score.text(newScore);
 }
-
-function moveBottom() {
-    $('#element-' + currentPosition + ' img').fadeIn();
-    currentPosition += 4;
-    $('#element-' + currentPosition + ' img').fadeOut();
-}
-
 
