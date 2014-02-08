@@ -6,7 +6,7 @@ var currentPosition = 0,
 var GRID_WIDTH = 4;
 var GRID_HEIGHT = 4;
 var modal_backup = $('#puzzleModal').clone();
-var puzzles = ["p1.html", "p2.html"]
+var puzzles = ["p1.html", "p2.html", "p4.html"]
 function shuffle (arr){
 	for(var i = 0 ; i < arr.length; i++){
 		var newIndex = Math.floor(Math.random()*(arr.length - i) + i);
