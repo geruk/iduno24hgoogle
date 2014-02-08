@@ -10,6 +10,15 @@ var questions = [];
 questions.push(new question("Twitter.com", null));
 questions.push(new question("Twitler.com", null));
 
+var GRID_WIDTH = 4;
+var GRID_HEIGHT = 4;
+
+// var matrix = $("#matrix");
+// for (var i = 0; i < GRID_WIDTH; i++) {
+// 	matrix.append($("<div class='container'>"));
+// 	matrix.append($("</div>"));
+// }
+
 /*
 var CANVAS_WIDTH = 480;
 var CANVAS_HEIGHT = 320;
