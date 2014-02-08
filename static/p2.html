@@ -46,7 +46,7 @@
 		var mousePos = getMousePos(canvas, evt);
 		if (mousePos.x > 493 && mousePos.x < 676 && mousePos.y > 63 && mousePos.y < 82) {
 			$("#p2 .alert-danger").hide();
-			$("#p2 .alert-success").text("Good job. The others just look like ads, don't you think?").show().fadeOut(3500, function(){ complete_puzzle();
+			$("#p2 .alert-success").text("Good job. The others just look like ads, don't you think?").show().fadeOut(2000, function(){ complete_puzzle();
 			});
 		} else if (mousePos.x > 38 && mousePos.x < 320 && mousePos.y > 179 && mousePos.y < 250) {
 			evt.target.style.cursor = "pointer";

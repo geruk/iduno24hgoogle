@@ -51,7 +51,7 @@ $(document).ready(function(){
 		var mousePos = getMousePos(canvas, evt);
 		if (mousePos.x > 486 && mousePos.x < 504 && mousePos.y > 7 && mousePos.y < 26) {
 			$("#p2 .alert-danger").hide();
-			$("#p2 .alert-success").text("That's right! Always remember to close those popup bastards!").show().fadeOut(3500, function(){ complete_puzzle();
+			$("#p2 .alert-success").text("That's right! Always remember to close those popup bastards!").show().fadeOut(2000, function(){ complete_puzzle();
 			});
 		} else if (mousePos.x > 381 && mousePos.x < 465 && mousePos.y > 81 && mousePos.y < 104) {
 			evt.target.style.cursor = "pointer";

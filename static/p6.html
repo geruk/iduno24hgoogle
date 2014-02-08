@@ -23,7 +23,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		if ($(this).hasClass("correct") ) {
 			$("#p6 .alert-warning").hide();
-			$("#p6 .alert-success").html("Pay attention to the real link. Some look legit,  <br/> but hiddenly redirected to malicious domains.").show().fadeOut(2500, function(){ complete_puzzle();
+			$("#p6 .alert-success").html("Pay attention to the real link. Some look legit,  <br/> but hiddenly redirected to malicious domains.").show().fadeOut(2000, function(){ complete_puzzle();
 			});
 		}
 		else {

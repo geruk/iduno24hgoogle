@@ -173,11 +173,11 @@ $(document).on( "ready", function() {
         	}
 
         	if(targetId != 15){
-                $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[numPuzzles].file});
+                
             } else {
     			$(target).html('');
-    			endGame(true);
         	}
+        	$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[numPuzzles].file});
         }
     });
 });
@@ -199,7 +199,9 @@ function complete_puzzle() {
         $('#element-' + currentPosition).append('<img src="img/foot.png" style="height:40px; width: 40px; padding: 50px;">');
         $(this).appendTo($(target)).fadeIn('fast');
         currentPosition = parseInt($(target).attr('id').substring(8));
-        blinking();
+        if (currentPosition == 15) {
+        	endGame(true);
+        } else blinking();
     });
 
     var arch = $('<div class="arch"></div>');
