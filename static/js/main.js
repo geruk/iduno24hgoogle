@@ -83,6 +83,9 @@ $(document).on( "ready", function() {
 		}
 		matrix.append(row);
 	}
+	var init_cell = $("#element-0");
+	init_cell.append('<img src="img/firefox.png" class="img-circle">');
+	$("#element-15").append('<img src="http://www.clker.com/cliparts/b/7/6/5/1308001441853739087google%20maps%20pin.svg">Destination');
 
     var bodyHeight = $body.height();
     $gridBox.height(bodyHeight).width(bodyHeight);
