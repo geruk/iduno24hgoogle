@@ -25,11 +25,11 @@ $(document).ready(function(){
 	$("#p1 .span3").click(function(){ 
 		if ($(this).hasClass("correct") ) {
 			$("#p1 .alert-warning").hide();
-			$("#p1 .alert-success").text("Pay attention to the links. A good link will lead you to good things.").show().fadeOut(1500, function(){ complete_puzzle();
+			$("#p1 .alert-success").text("Great! The others may look right but in fact are phishsy.").show().fadeOut(1500, function(){ complete_puzzle();
 			});
 		}
 		else {
-			$("#p1 .alert-warning").html("You just clicked a malicious link.<br/>That's bad. You should feel bad.").hide().fadeIn();
+			$("#p1 .alert-warning").html("Hmmm. Are you sure that is really THE link you wanted?").hide().fadeIn();
 		}
 	});
 	$("#p1 .span3").hover(function(){ $(this).css('cursor','pointer').css('background-color', 'lightblue'); },
