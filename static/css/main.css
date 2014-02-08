@@ -596,3 +596,10 @@ Tooltip
     font-weight: bold;
     padding: 20px;
 }
+
+.modal {
+    width: auto;
+}
+.modal-body {
+    max-height: none !important;
+}

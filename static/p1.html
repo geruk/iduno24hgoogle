@@ -1,14 +1,36 @@
-<p> Choose the phishing link </p>
+<div id="p1">
+	<h2>Choose the non-malicious link</h2>
+	<div class="row" style="overflow: hidden">
+		<div class="span3 well">http://twittler.com</div>
+		<div class="span3 well">http://twitterc.om</div>
+	</div><div class="row">
+		<div class="span3 well correct">http://twitter.com</div>
+		<div class="span3 well">http://twitte.com</div>
+	</div><div class="row">
+		<div class="span3 well">http://twittler.com</div>
+		<div class="span3 well">http://twitterc.om</div>
+	</div><div class="row">
+		<div class="span3 well">http://twittter.com</div>
+		<div class="span3 well">http://twitte.com</div>
+	</div>
+	<div class="alert alert-success"></div>
+	<div class="alert alert-warning"></div>
+</div>
 
-<div class="row" id="p1">
-	<div class="span3">http://twitter.com</div>
-	<div class="span3">http://google.com</div>
-	<div class="span3">http://t.co</div>
-	<div class="span3">http://facebook.com</div>
-</div>	
 <script type="text/javascript">
 $(document).ready(function(){
-
-	$("#p1 .span3").click(function(){ complete_puzzle(); });
+	$("#p1 .alert").hide();
+	$("#p1 .span3").click(function(){ 
+		if ($(this).hasClass("correct") ) {
+			$("#p1 .alert-warning").hide();
+			$("#p1 .alert-success").text("Pay attention to the links. A good link will lead you to good things.").show().fadeOut(1500, function(){ complete_puzzle();
+			});
+		}
+		else {
+			$("#p1 .alert-warning").html("You just clicked a malicious link.<br/>That's bad. You should feel bad.").hide().fadeIn();
+		}
+	});
+	$("#p1 .span3").hover(function(){ $(this).css('cursor','pointer').css('background-color', 'lightblue'); },
+		function(){ $(this).css('cursor','auto').css('background-color', ''); });
 });
 </script>
