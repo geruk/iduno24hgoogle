@@ -10,6 +10,7 @@ var questions = [];
 questions.push(new question("Twitter.com", null));
 questions.push(new question("Twitler.com", null));
 
+/*
 var CANVAS_WIDTH = 480;
 var CANVAS_HEIGHT = 320;
 var FPS = 30;
@@ -36,3 +37,4 @@ function draw() {
 	canvas.fillStyle = "#000";
 	canvas.fillText("Sup Bro!", textX, textY);
 }
+*/
