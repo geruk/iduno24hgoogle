@@ -6,6 +6,17 @@ var currentPosition = 0,
 var GRID_WIDTH = 4;
 var GRID_HEIGHT = 4;
 var modal_backup = $('#puzzleModal').clone();
+var puzzles = ["p1.html", "p2.html"]
+function shuffle (arr){
+	for(var i = 0 ; i < arr.length; i++){
+		var newIndex = Math.floor(Math.random()*(arr.length - i) + i);
+		var tmp = arr[i];
+		arr[i] = arr[newIndex];
+		arr[newIndex] = tmp;
+	}
+	return arr;
+}
+puzzles = shuffle(puzzles);
 
 $(document).on( "ready", function() {
 
@@ -15,7 +26,7 @@ $(document).on( "ready", function() {
 
 	var matrix = $(".grid-box");
 	for (i = 0; i < GRID_WIDTH; i++) {
-		row = $('<div class="row-fluid"></div>');
+		row = $('<div class=" Minh nghi la row-fluid"></div>');
 		for (j = 0; j < GRID_HEIGHT; j++) {
 			s = "element-"+(i*GRID_WIDTH+j);
 			cell = $('<div class="span3"></div>');
@@ -110,15 +121,18 @@ $(document).on( "ready", function() {
         var targetId = parseInt($(target).attr('id').substring(8));
 
         if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
-        	if (targetId == 1)
-    			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:"p1.html"});
-    		else if (targetId == 2)
-    			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:"p2.html"});
-            if (targetId == 15) {
-                $(target).html('');
-                endGame();
-            }
-
+        	switch(targetId){
+        		case 1:
+        			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[0]});
+        			break;
+        		case 2:
+        			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[1]});
+        			break;
+        		case 15:
+        			$(target).html('');
+        			endGame();
+        	}
+        	
             if (currentPosition%4+1 < GRID_WIDTH) {
             	$('#element-' + (currentPosition+1)).html("");
             }
