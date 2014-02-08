@@ -132,15 +132,20 @@ $(document).on( "ready", function() {
                 case 3:
                     $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[2]});
                     break;
+                case 3:
+                    $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[3]});
+                    break;
                 case 15:
         			$(target).html('');
         			endGame();
         	}
 
         	if (targetId == 1)
-    			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:"p4.html"});
+    			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:"p1.html"});
     		else if (targetId == 2)
     			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:"p2.html"});
+    		else if (targetId == 4)
+    			$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:"p4.html"});
             if (targetId == 15) {
                 $(target).html('');
                 endGame();
