@@ -122,6 +122,10 @@ $(document).on( "ready", function() {
  * Update Score Functions
  */
 function updateScore(newScore) {
+    // update global variable
+    score = newScore;
+
+    // update html
     var $score = $('.score');
     $score.text(newScore);
 }
