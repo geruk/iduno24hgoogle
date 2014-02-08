@@ -6,7 +6,7 @@ var currentPosition = 0,
 var GRID_WIDTH = 4;
 var GRID_HEIGHT = 4;
 var modal_backup = $('#puzzleModal').clone();
-var puzzles = ["p1.html", "p2.html", "p4.html", , "p3.html"]
+var puzzles = ["p1.html", "p2.html",  "p3.html", "p4.html","p5.html"]
 function shuffle (arr){
 	for(var i = 0 ; i < arr.length; i++){
 		var newIndex = Math.floor(Math.random()*(arr.length - i) + i);
@@ -132,8 +132,11 @@ $(document).on( "ready", function() {
                 case 3:
                     $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[2]});
                     break;
-                case 3:
+                case 4:
                     $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[3]});
+                    break;
+                case 5:
+                	$("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[4]});
                     break;
                 case 15:
         			$(target).html('');
