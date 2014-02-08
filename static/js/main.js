@@ -88,7 +88,7 @@ $(document).on( "ready", function() {
 	}
 	var init_cell = $("#element-0");
 	init_cell.append('<img src="img/firefox.png" class="img-circle">');
-	$("#element-15").append('<img src="http://www.clker.com/cliparts/b/7/6/5/1308001441853739087google%20maps%20pin.svg">Destination');
+	$("#element-15").append('<img src="img/destination.png">Destination');
 
     var bodyHeight = $body.height();
     $gridBox.height(bodyHeight).width(bodyHeight);
@@ -101,14 +101,17 @@ $(document).on( "ready", function() {
     $('.well').height(x);
 });
 
-function moveRight(currentPosition) {
+function moveRight() {
     $('#element-' + currentPosition + ' img').fadeIn();
     currentPosition += 1;
     $('#element-' + currentPosition + ' img').fadeOut();
 }
 
-function moveBottom(currentPosition) {
+function moveBottom() {
     $('#element-' + currentPosition + ' img').fadeIn();
     currentPosition += 4;
     $('#element-' + currentPosition + ' img').fadeOut();
 }
+
+moveRight();
+console.log(currentPosition);
