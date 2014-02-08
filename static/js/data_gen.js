@@ -34,6 +34,7 @@ var linkBank  = [["Click the following links", ["Twitter.com", "Twitler.com"],nu
 				 ["Click the following links", ["examplee.com", "example.com"],null],
 				 ["Click the following links", ["neweggs.com", "newegg.com"],null],
 				 ["Which button is the right download button", null, ["button.png", "button2.png"]],
-				 ["Which button is the right download button", null, ["downloadButton1.img", "downloadButton1.img"]]];
+				 ["Which button is the right download button", null, ["downloadButton1.img", "downloadButton1.img"]],
+				 ["", "",""]];
 var linkBank = shuffle(linkBank);
 var questions = makeQuestions(linkBank);
