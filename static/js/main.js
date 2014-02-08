@@ -12,37 +12,37 @@ var puzzles = [
 		file: "p1.html",
 		name: "Mispelled Links",
 		time: 15,
-		score: 150
+		score: 10
 	},
 	{
 		file: "p2.html",
 		name: "Retrieve the treasure",
 		time: 20,
-		score: 200
+		score: 10
 	},
 	{
 		file: "p3.html",
 		name: "Some treasures are poisonous",
 		time: 20,
-		score: 200
+		score: 10
 	},
 	{
 		file: "p4.html",
 		name: "Gears upgrade?",
 		time: 10,
-		score: 100
+		score: 10
 	},
 	{
 		file: "p5.html",
 		name: "Double edged",
 		time: 10,
-		score: 100
+		score: 10
 	},
 	{
 		file: "p6.html",
 		name: "Hovering Links",
 		time: 15,
-		score: 150
+		score: 10
 	}
 ];
 
@@ -162,7 +162,7 @@ $(document).on( "ready", function() {
 
         var target = event.currentTarget;
         var targetId = parseInt($(target).attr('id').substring(8));
-        $('#element-'+currentPosition).data("target", target);
+        $('#element-'+currentPosition).data("target", target).data("time", new Date().getTime());
 
         if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
 
@@ -187,6 +187,9 @@ function complete_puzzle() {
 	$('#puzzleModal').modal('hide').remove();
 	$('body').prepend(modal_backup.clone());
 	var target = $('#element-'+currentPosition).data("target");
+	t = new Date().getTime() - $('#element-'+currentPosition).data("time");
+	debugger;
+	updateScore(Math.floor(score+(puzzles[numPuzzles-1].time-t/1000)*puzzles[numPuzzles-1].score));
 
 	if (currentPosition%4+1 < GRID_WIDTH) {
     	$('#element-' + (currentPosition+1)).html("");
