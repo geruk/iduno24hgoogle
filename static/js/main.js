@@ -210,7 +210,7 @@ function blinking() {
 		bubble.append('<img src="img/go_right.png" class="trigger" />');
 		bubble.append('<div class="popup">'+
                                     '<div class="alert alert-success">'+
-                                        puzzles[currentPosition].name+
+                                        "Next Puzzle" +
                                     '</div></div>');
 		$('#element-' + (currentPosition+1)).append(bubble);
 	}
