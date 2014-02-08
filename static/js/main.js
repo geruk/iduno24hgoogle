@@ -82,4 +82,7 @@ $(document).on( "ready", function() {
     var bodyHeight = $body.height();
 
     $gridBox.height(bodyHeight).width(bodyHeight);
+    var $span3 = $('.span3');
+    var spanwidth = $span3.width();
+    $span3.height(spanwidth).width(spanwidth);
 });
