@@ -2,7 +2,7 @@
 <div id="p5">
 	<h2> Which one is the right folder </h2>
 	<canvas id="mult-file-extensions" height="400" width="600"></canvas>
-	<div height="200" width "600">
+	<div height="200" width "500">
 		<div class="alert alert-success"></div>
 		<div class="alert alert-danger"></div>
 	</div>
@@ -46,15 +46,15 @@
 		if((mousePos.y > 55 && mousePos.y < 115) && ((mousePos.x > 20 && mousePos.x < 135) || (mousePos.x > 165 && mousePos.x < 285) || (mousePos.x > 320 && mousePos.x < 430) || (mousePos.x > 475 && mousePos.x < 585))) {
 			evt.target.style.cursor = "pointer";
 			$("#p5 .alert-success").hide();
-			$("#p5 .alert-danger").text("That's not quite right. Sometimes executable trojans pretend to be normal file").show();
+			$("#p5 .alert-danger").text("That's wrong. Sometimes executable trojans pretend to be normal file").show();
 		}else if(mousePos.y > 150 && mousePos.y < 225 && ((mousePos.x > 20 && mousePos.x < 135) || (mousePos.x > 320 && mousePos.x < 430) || (mousePos.x > 475 && mousePos.x < 585))){
 			evt.target.style.cursor = "pointer";
 			$("#p5 .alert-success").hide();
-			$("#p2 .alert-danger").text("That's not quite right. Sometimes executable trojans pretend to be normal file").show();
+			$("#p2 .alert-danger").text("That's wrong. Sometimes executable trojans pretend to be normal file").show();
 		}
 		else if (mousePos.y > 150 && mousePos.y < 225 && mousePos.x > 165 && mousePos.x < 285){
 			$("#p5 .alert-danger").hide();
-			$("#p5 .alert-success").text("Good job. The others look normal, but it's likely they are trojan, don't you think?").show().fadeOut(3500, function(){ complete_puzzle();
+			$("#p5 .alert-success").text("Good job. The others look normal, but it's likely they are trojan.").show().fadeOut(3500, function(){ complete_puzzle();
 			});
 		}
 		else{
