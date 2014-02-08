@@ -612,3 +612,9 @@ Tooltip
   background-repeat: no-repeat;
   background-image:url('../img/error.png');
 }
+
+.arch {
+    vertical-align: center;
+    font-size: 25px;
+    color: #1ABC9C;
+}

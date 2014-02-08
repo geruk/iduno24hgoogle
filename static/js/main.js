@@ -166,7 +166,7 @@ $(document).on( "ready", function() {
                 $("#puzzleModal").modal({backdrop:"static", keyboard:false, remote:puzzles[targetId-1].file});
             } else {
     			$(target).html('');
-    			endGame();
+    			endGame(true);
         	}
         }
     });
@@ -211,7 +211,7 @@ function blinking() {
 		bubble.append('<img src="img/go_right.png" class="trigger" />');
 		bubble.append('<div class="popup">'+
                                     '<div class="alert alert-success">'+
-                                        '<a href="#twitter.com" alt="Twitter">twitter.com</a>'+
+                                        puzzles[currentPosition].name+
                                     '</div></div>');
 		$('#element-' + (currentPosition+1)).append(bubble);
 	}
@@ -221,7 +221,7 @@ function blinking() {
 		bubble.append('<img src="img/go_bot.png" class="trigger" />');
 		bubble.append('<div class="popup">'+
                                     '<div class="alert alert-success">'+
-                                        '<a href="#twitter.com" alt="Twitter">twitter.com</a>'+
+                                        "Next Puzzle"+
                                     '</div></div>');
 		$('#element-' + (currentPosition+4)).append(bubble);
 	}
