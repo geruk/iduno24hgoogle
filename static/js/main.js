@@ -5,8 +5,10 @@ var currentPosition = 0,
 
 var GRID_WIDTH = 4;
 var GRID_HEIGHT = 4;
+var modal_backup = $('.modal').clone();
 
 $(document).on( "ready", function() {
+
     var $body = $('body'),
         $gridBox = $('.grid-box'),
         $infoBox = $('.info-box');
@@ -104,10 +106,15 @@ $(document).on( "ready", function() {
 
 
     $('.well').on('click', function(event){
+
         var target = event.currentTarget;
         var targetId = parseInt($(target).attr('id').substring(8));
 
         if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
+        	if (targetId == 1)
+    			$(".modal").modal({backdrop:"static", keyboard:false, remote:"p1.html"});
+    		else if (targetId == 2)
+    			$(".modal").modal({backdrop:"static", keyboard:false, remote:"p2.html"});
             if (targetId == 15) {
                 $(target).html('');
                 endGame();
@@ -129,6 +136,11 @@ $(document).on( "ready", function() {
         }
     });
 });
+
+function complete_puzzle() {
+	$('.modal').modal('hide').remove();
+	$('body').prepend(modal_backup.clone());
+}
 
 /*
  * Update Score Functions
