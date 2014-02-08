@@ -326,6 +326,8 @@ html, body {
 }
 
 .row25 {
-    position: relative;
-    height: 25%;
+}
+
+.span3 {
+    margin: 0!important;
 }
