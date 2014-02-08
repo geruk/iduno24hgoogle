@@ -1,14 +1,69 @@
-<p> Which one is the right folder </p>
-<div class="row" id="pics"><img src="img/file_extensions.png" alt="Smiley face" width="600" height="400"></div>
-<div class="row" id="p2">
-	<div class="span3">Folder 1</div>
-	<div class="span3">Folder 1</div>
-	<div class="span3">Folder 1</div>
-	<div class="span3">Folder 1</div>
+
+<div id="p5">
+	<h2> Which one is the right folder </h2>
+	<canvas id="mult-file-extensions" height="400" width="600"></canvas>
+	<div height="200" width "600">
+		<div class="alert alert-success"></div>
+		<div class="alert alert-danger"></div>
+	</div>
 </div>
-<div class="row" id="p2.5">
-	<div class="span3">Folder 1</div>
-	<div class="span3">Folder 1</div>
-	<div class="span3">Folder 1</div>
-	<div class="span3">Folder 1</div>
-</div>	
+
+<script type="text/javascript">
+	var canvas = document.getElementById("mult-file-extensions");
+	var context = canvas.getContext("2d");
+	var imgObj = new Image();
+	imgObj.onload = function() {
+		context.drawImage(imgObj, 0, 0);
+	};
+
+	function getMousePos(canvas, evt) {
+		var rect = canvas.getBoundingClientRect();
+		return {
+			x: evt.clientX - rect.left,
+			y: evt.clientY - rect.top
+		};
+	}
+
+	imgObj.src = "img/file_extensions.png";
+
+	canvas.addEventListener('mousemove', function(evt) {
+		var mousePos = getMousePos(canvas, evt);
+		console.log(mousePos.x + " " + mousePos.y)
+		if((mousePos.y > 55 && mousePos.y < 115) && ((mousePos.x > 20 && mousePos.x < 135) || (mousePos.x > 165 && mousePos.x < 285) || (mousePos.x > 320 && mousePos.x < 430) || (mousePos.x > 475 && mousePos.x < 585))) {
+			evt.target.style.cursor = "pointer";
+		}else if(mousePos.y > 150 && mousePos.y < 225 && ((mousePos.x > 20 && mousePos.x < 135) || (mousePos.x > 165 && mousePos.x < 285) || (mousePos.x > 320 && mousePos.x < 430) || (mousePos.x > 475 && mousePos.x < 585))){
+			evt.target.style.cursor = "pointer";
+		}else{
+			evt.target.style.cursor = "auto";
+		}
+	}, false);
+
+
+
+	canvas.addEventListener('click', function(evt) {
+		var mousePos = getMousePos(canvas, evt);
+		
+		if((mousePos.y > 55 && mousePos.y < 115) && ((mousePos.x > 20 && mousePos.x < 135) || (mousePos.x > 165 && mousePos.x < 285) || (mousePos.x > 320 && mousePos.x < 430) || (mousePos.x > 475 && mousePos.x < 585))) {
+			evt.target.style.cursor = "pointer";
+			$("#p5 .alert-success").hide();
+			$("#p5 .alert-danger").text("That's not quite right. Sometimes executable trojans pretend to be normal file").show();
+		}else if(mousePos.y > 150 && mousePos.y < 225 && ((mousePos.x > 20 && mousePos.x < 135) || (mousePos.x > 320 && mousePos.x < 430) || (mousePos.x > 475 && mousePos.x < 585))){
+			evt.target.style.cursor = "pointer";
+			$("#p5 .alert-success").hide();
+			$("#p2 .alert-danger").text("That's not quite right. Sometimes executable trojans pretend to be normal file").show();
+		}
+		else if (mousePos.y > 150 && mousePos.y < 225 && mousePos.x > 165 && mousePos.x < 285){
+			$("#p5 .alert-danger").hide();
+			$("#p5 .alert-success").text("Good job. The others look normal, but it's likely they are trojan, don't you think?").show().fadeOut(3500, function(){ complete_puzzle();
+			});
+		}
+		else{
+			evt.target.style.cursor = "auto";
+		}
+
+	}, false);
+
+	$(document).ready(function(){
+		$(".alert").hide();
+	});
+</script>
