@@ -123,18 +123,6 @@ html, body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -578,4 +566,11 @@ Tooltip
   color: #3a87ad;
   background-color: #d9edf7;
   border-color: #bce8f1;
+}
+
+.score {
+    text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+    padding: 50px 0;
 }

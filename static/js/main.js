@@ -1,5 +1,6 @@
 // hold current player position
-var currentPosition = 0;
+var currentPosition = 0,
+    score = 0;
 
 /**
 If image == null, then show text only
@@ -87,28 +88,46 @@ $(document).on( "ready", function() {
 		matrix.append(row);
 	}
 	var init_cell = $("#element-0");
-	init_cell.append('<img src="img/firefox.png" class="img-circle">');
-	$("#element-15").append('<img src="http://www.clker.com/cliparts/b/7/6/5/1308001441853739087google%20maps%20pin.svg">Destination');
+	init_cell.append('<img src="img/chrome_girl.png" style="height:100%;">');
+	$("#element-15").append('<img src="img/destination.png">Destination');
 
     var bodyHeight = $body.height();
     $gridBox.height(bodyHeight).width(bodyHeight);
     var $span3 = $('.span3');
     console.log($span3.parent().parent().width());
-    var spanwidth = $span3.parent().parent().width()*0.25;
-    $span3.height(spanwidth).width(spanwidth);
+    var spanWidth = $span3.parent().parent().width()*0.25;
+    $span3.height(spanWidth).width(spanWidth);
     x = $('.well').width();
     console.log(x);
     $('.well').height(x);
+
+    $('.well').on('click', function(event){
+        var target = event.currentTarget;
+        var targetId = parseInt($(target).attr('id').substring(8));
+
+        if (currentPosition + 1 == targetId || currentPosition + 4 == targetId) {
+            if (targetId == 15) {
+                $(target).html('');
+            }
+
+            $('#element-' + currentPosition).find('img').fadeOut('fast', function() {
+                $('#element-' + currentPosition).append('<img src="img/foot.png" style="height:40px; width: 40px; padding: 50px;">');
+                $(this).appendTo($(target)).fadeIn('fast');
+                currentPosition = parseInt($(target).attr('id').substring(8));
+            });
+        }
+    });
 });
 
-function moveRight(currentPosition) {
-    $('#element-' + currentPosition + ' img').fadeIn();
-    currentPosition += 1;
-    $('#element-' + currentPosition + ' img').fadeOut();
+/*
+ * Update Score Functions
+ */
+function updateScore(newScore) {
+    // update global variable
+    score = newScore;
+
+    // update html
+    var $score = $('.score');
+    $score.text(newScore);
 }
 
-function moveBottom(currentPosition) {
-    $('#element-' + currentPosition + ' img').fadeIn();
-    currentPosition += 4;
-    $('#element-' + currentPosition + ' img').fadeOut();
-}
